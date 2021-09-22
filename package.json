@@ -1,0 +1,14 @@
+{
+    "name": "my-application",
+    "version": "1.0.0",
+    "dependencies": {
+        "aws-sdk": "^2.992.0",
+        "ejs": "~2.4.1",
+        "express": "~4.13.1",
+        "framework7": "^6.3.4",
+        "framework7-icons": "^5.0.3",
+        "multer": "^1.4.3",
+        "multer-s3": "^2.9.0",
+        "path": "^0.12.7"
+    }
+}

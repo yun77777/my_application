@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="with-statusbar-overlay">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <title>Notifications</title>
+      
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/css/framework7.material.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/css/framework7.material.colors.min.css">
+   
+      <link rel="stylesheet" type="text/css" href="css/framework7-icons.css">
+
+    </head>
+   <body>
+      <div class="views">
+         <div class="view view-main">
+            <div class="pages navbar-fixed">
+               <div data-page="home" class="page">
+                  <div class="navbar">
+                     <div class="navbar-inner">
+                        <div class="center">Notifications</div>
+                     </div>
+                  </div>
+                  <div class="page-content">
+                     <div class="content-block">
+
+
+
+                          <!--  -->
+      <h1>File Upload</h1>
+      <i class="f7-icons">house</i>
+      <form action="/api/file/upload" method="POST" enctype="multipart/form-data">
+        <div class="file-field input-field">
+          <div class="button button-big button-green">
+            <input name="file" type="file" style="display:none">
+            <div class="button button-raised button-fill color-pink" onclick="onclick=document.all.file.click()">
+              <span>File</span>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="button button-fill color-red button-round">Submit</button>
+      </form>
+<!--  -->
+
+                        <p><a href="#" class="button button-raised notification-single">Single-line notification</a></p>
+                        <p><a href="#" class="button button-raised notification-multi">Multi-line notification</a></p>
+                        <p><a href="#" class="button button-raised notification-custom">With custom button</a></p>
+                        <p><a href="#" class="button button-raised notification-callback">With callback on close</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/js/framework7.min.js"></script>
+      <!-- <script type="text/javascript" src="js/chat.js"></script> -->
+
+      <script>
+         var myApp = new Framework7({
+           material: true
+         });
+         var mainView = myApp.addView('.view-main');
+
+         var $$ = Dom7;
+
+         $$('.notification-single').on('click', function () {
+            myApp.addNotification({
+               message: 'Battery remaining only 20%'
+            });
+         });
+         $$('.notification-multi').on('click', function () {
+            myApp.addNotification({
+               message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            });
+         });
+         $$('.notification-custom').on('click', function () {
+            myApp.addNotification({
+               message: 'Nice teal color button',
+               button: {
+                  text: 'Click me',
+                  color: 'teal'
+               }
+            });
+         });
+         $$('.notification-callback').on('click', function () {
+            myApp.addNotification({
+               message: 'Close this notification to see an alert',
+               button: {
+                  text: 'Close Me',
+                  color: 'red'
+               },
+               onClose: function () {
+                  myApp.alert('Callback made.. Notification closed');
+               }
+            });
+         });
+      </script>
+   </body>
+</html>

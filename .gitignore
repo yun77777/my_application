@@ -1,0 +1,4 @@
+awsconfig.json
+.env
+*.env
+s3.env.js
